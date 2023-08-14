@@ -1,0 +1,14 @@
+ 
+  body {
+    max:0;
+    padding: 0;
+    font-family: 'Trebuchet MS';
+    text-align: center;
+  }
+  
+  main {
+    display: flex;
+    gap: 30px;
+    min-height: 450px;
+    justify-content: center;
+  }

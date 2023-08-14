@@ -1,0 +1,36 @@
+table {
+    border: 4px solid rgb(85, 84, 84);
+    background-color: white;
+}
+
+section {
+    padding: 2px;
+}
+
+.div-principal {
+    justify-content: center;
+}
+
+.table-lista {
+    text-align: center;
+    border: 0;
+}
+
+.table-line-titulo {
+    font-weight: bold;
+    background-color: rgb(240, 235, 233);
+}
+
+.table-line-item {
+    padding: 20px;
+    text-align: left;
+}
+
+.table-line-item td {
+    padding: 10px;
+}
+
+.forma-pagamento {
+    text-align: left;
+    display: flex;
+}
