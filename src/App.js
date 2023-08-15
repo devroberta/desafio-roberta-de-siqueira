@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import ListaCardapio from './components/ListaCardapio.js'
-import Header from './components/Header.js'
+import React from 'react';
+import ListaCardapio from './components/main/ListaCardapio.js'
+import Header from './components/header/Header.js'
 import './App.css'
 
 function App() {
