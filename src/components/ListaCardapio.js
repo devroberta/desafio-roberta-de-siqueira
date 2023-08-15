@@ -56,22 +56,40 @@ const ListaCardapio = () => {
         <form className="form-pedido" onSubmit={handleSubmit}>
         </form>
         </section>
+
+        <hr />
+        
+        <section>
+            <label>Item: </label>
+            <input type="text" name="item"></input>
+            <input className="quantidade" type="number" value="1" min="0" /> unidade(s)
+            <button className="button-adiciona">+</button>
+        </section>
+
+        <section>
+            Carrinho:
+            <ol>
+                <li></li>
+            </ol>
+        </section>
+
         <section>
             <fieldset>
                 <legend> Forma de Pagamento: </legend>
                 <div className="forma-pagamento"> 
-                    <input type="checkbox" id="dinheiro" name="dinheiro" checked />
-                    <label for="dinheiro">Dinheiro</label>
+                    <input type="radio" id="dinheiro" name="pagamento" value="1" />Dinheiro
                 </div>
                 <div className="forma-pagamento">
-                    <input type="checkbox" id="debito" name="debito" />
-                    <label for="debito">Debito</label>
+                    <input type="radio" id="debito" name="pagamento" value="2" />Debito
                 </div>
                 <div className="forma-pagamento">
-                    <input type="checkbox" id="credito" name="credito" />
-                    <label for="credito">Credito</label>
+                    <input type="radio" id="credito" name="pagamento" value="3" />Credito
                 </div>
             </fieldset>
+        </section>
+
+        <section>
+            <button type="submit">Enviar Pedido</button>
         </section>
     </div>
 
