@@ -27,8 +27,16 @@ section {
     text-align: left;
 }
 
-.table-line-item td {
-    padding: 10px;
+.table-line-carrinho {
+    padding: 20px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.table-line-carrinho td{
+    padding: 60px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 input {
@@ -44,6 +52,19 @@ input {
     background-color: rgb(71, 70, 70);
     font-size: 22px;
     padding: 0px 8px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.itemCarrinho {
+    text-align: left;
+    font-size: 14px;
+}
+
+.button-excluir {
+    background-color: red;
+    font-size: 15px;
+    padding: 1px 6px;
     margin-left: 20px;
     border-radius: 5px;
 }
