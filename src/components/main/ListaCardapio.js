@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
 import './ListaCardapio.css'
 import formatCurrency from "../../utils/formatCurrency.js";
-import Carrinho from "../carrinho/Carrinho.js"
 
 const ListaCardapio = () => {
     const [bdLista, setBdLista] = useState([]);
     const [loading, setLoading] = useState(false);
     const [codigo, setCodigo] = useState("");
     const [quantidade, setQuantidade] = useState(1);
-    const [itemCarrinho, setItemCarrinho] = useState([]);
     const [listaCarrinho, setListaCarrinho] = useState([]);
 
     const API = "http://localhost:5000"
