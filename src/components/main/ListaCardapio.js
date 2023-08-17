@@ -25,10 +25,25 @@ const ListaCardapio = () => {
         if(quantidade == 0) { 
             alert("Quantida não pode ser = 0");
         } else {
-            listaCarrinho.push(item);
+            const itemBuscado = listaCarrinho.filter(i => i.codigo == codigo);
+
+            if(itemBuscado != 0) {
+                listaCarrinho.map((upItem) => {
+                    if(upItem.codigo === codigo) {
+                        upItem.quantidade += item.quantidade;
+                        alert("Item já existe, será adicionado a quantia ao item existente.")
+                    }
+                })
+            } else {
+                listaCarrinho.push(item);
+            }
         }
 
         setCodigo("");
+    }
+
+    const handleDelete = (id) => {
+        listaCarrinho.splice(id, 1);
     }
 
     useEffect(() => {
@@ -114,7 +129,7 @@ const ListaCardapio = () => {
                         <tr className="table-line-carrinho" key={item.codigo}>
                             <td>{item.codigo}</td>
                             <td>{item.quantidade}</td>
-                            <td><button className='button-excluir'>x</button></td>
+                            <td><button className='button-excluir' onClick={() => handleDelete(item.codigo)}>x</button></td>
                         </tr>
                     ))}
                 </fieldset>
