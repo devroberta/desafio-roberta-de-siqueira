@@ -8,6 +8,7 @@ const ListaCardapio = () => {
     const [codigo, setCodigo] = useState("");
     const [quantidade, setQuantidade] = useState(1);
     const [listaCarrinho, setListaCarrinho] = useState([]);
+    const [pagamento, setPagamento] = useState("dinheiro");
 
     const API = "http://localhost:5000"
 
@@ -27,7 +28,7 @@ const ListaCardapio = () => {
             if(itemBuscado != 0) {
                 listaCarrinho.map((upItem) => {
                     if(upItem.codigo === codigo) {
-                        upItem.quantidade += item.quantidade;
+                        upItem.quantidade += parseInt(item.quantidade);
                         alert("Item já existe, será adicionado a quantia ao item existente.")
                     }
                 })
@@ -38,6 +39,12 @@ const ListaCardapio = () => {
 
         setCodigo("");
     }
+
+    const handleOnClick = (e) => {
+        setPagamento((document.querySelector('input[name="pagamento"]:checked')).value);
+        alert(`Confirma forma de pagamento: ${pagamento}`);
+    }
+
 
     const handleDelete = (id) => {
         listaCarrinho.splice(id, 1);
@@ -62,6 +69,14 @@ const ListaCardapio = () => {
         loadData()
 
     }, [])
+
+    function verificarPagamento() {
+        const pgtos = document.getElementsByName("pagamento");
+        
+        for (let i in pgtos)
+            if(pgtos[i].checked) alert(pgtos[i].value);
+        
+    }
 
     return (
         <div className="div-principal">
@@ -107,8 +122,7 @@ const ListaCardapio = () => {
                     <input 
                         className="quantidade" 
                         type="number" 
-                        name="quantidade" 
-                        defaultValue="1" 
+                        name="quantidade"  
                         onChange={(e) => setQuantidade(e.target.value)} 
                         value={quantidade}
                         min="0" 
@@ -137,19 +151,19 @@ const ListaCardapio = () => {
                 <fieldset>
                     <legend> Forma de Pagamento: </legend>
                     <div className="forma-pagamento"> 
-                        <input type="radio" id="dinheiro" name="pagamento" value="1" />Dinheiro
+                        <input type="radio" id="dinheiro" name="pagamento" value="dinheiro" />Dinheiro
                     </div>
                     <div className="forma-pagamento">
-                        <input type="radio" id="debito" name="pagamento" value="2" />Debito
+                        <input type="radio" id="debito" name="pagamento" value="debito" />Debito
                     </div>
                     <div className="forma-pagamento">
-                        <input type="radio" id="credito" name="pagamento" value="3" />Credito
+                        <input type="radio" id="credito" name="pagamento" value="credito" />Credito
                     </div>
                 </fieldset>
             </section>
 
             <section>
-                <button type="button">Enviar Pedido</button>
+                <button type="button" onClick={handleOnClick}>Enviar Pedido</button>
             </section>
         </div>
     )
